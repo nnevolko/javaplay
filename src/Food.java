@@ -1,3 +1,7 @@
+	/*
+	 * nnevolko
+	 */
+
 interface Food {
 	public String getType();
 }

@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * nnevolko
+ */
+
 public class RankAlgorithmWarmup {
 
 	public void calculate(int[] numbers, int size) {

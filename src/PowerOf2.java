@@ -1,3 +1,7 @@
+	/*
+	 * nnevolko
+	 */
+
 public class PowerOf2 {
 
 	static class Inner {

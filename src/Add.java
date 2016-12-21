@@ -1,4 +1,7 @@
 public class Add {
+	/*
+	 * nnevolko
+	 */
 
 	public void add(Integer... integers) {
 		if (integers.length < 2) {

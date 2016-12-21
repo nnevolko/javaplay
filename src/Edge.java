@@ -1,3 +1,6 @@
+	/*
+	 * nnevolko
+	 */
 public class Edge {
 
 	DNode fromNode;

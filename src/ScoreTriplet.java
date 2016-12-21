@@ -1,3 +1,7 @@
+/*
+ * nnevolko
+ */
+
 public class ScoreTriplet {
 
 	private int clarity;

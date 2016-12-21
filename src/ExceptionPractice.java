@@ -1,10 +1,14 @@
+	/*
+	 * nnevolko
+	 */
+
 public class ExceptionPractice {
 
 	public void testGetProduct() {
 
 		try {
 			int result = getProduct(2, 4);
-		} catch (NikaException e) {
+		} catch (PracticeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -12,10 +16,10 @@ public class ExceptionPractice {
 	}
 
 	// has to be within try/catch block or declared that method throws exception
-	public int getProduct(int a, int b) throws NikaException {
+	public int getProduct(int a, int b) throws PracticeException {
 
 		if (a < 0) {
-			throw new NikaException("custom message");
+			throw new PracticeException("custom message");
 		}
 		return a * b;
 	}

@@ -1,3 +1,6 @@
+/*
+ * nnevolko
+ */
 class Student {
 	private String name;
 	private String id;

@@ -1,3 +1,6 @@
+	/*
+	 * nnevolko
+	 */
 public class Fruit implements Comparable<Fruit> {
 
 	private String fruitName;

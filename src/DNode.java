@@ -1,3 +1,6 @@
+	/*
+	 * nnevolko
+	 */
 public class DNode implements Comparable<DNode> {
 
 	private String name;

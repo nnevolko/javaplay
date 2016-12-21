@@ -1,4 +1,6 @@
-
+/*
+ * nnevolko
+ */
  public class Singleton{
     
     private static Singleton instance;
@@ -9,6 +11,7 @@
         //str = "";
     }
     
+    // this needs to be synchronized for multithreading
     public static Singleton getSingleInstance(){
         if (instance == null){
             instance = new Singleton();

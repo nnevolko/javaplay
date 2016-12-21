@@ -3,6 +3,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Stack;
 
+/*
+ * nnevolko
+ */
+
 public class RobotInAGrid {
 
 	int rows;

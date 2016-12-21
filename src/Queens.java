@@ -1,4 +1,7 @@
 public class Queens {
+	/*
+	 * nnevolko 11/20
+	 */
 
 	private Integer[][] board = new Integer[8][8];
 
