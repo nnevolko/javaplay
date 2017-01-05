@@ -1,13 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.Stack;
-import java.util.TreeSet;
 
 public class PracticeMain {
 
@@ -15,81 +9,61 @@ public class PracticeMain {
 			+ "string which I'm going to " + "use for pattern matching.";
 
 	public static void main(String[] args) {
-		
-		
-		//runQuickSort();
-		
-		
-		//runBinarySearchTreeTests();
-		
-		//Add add = new Add();
-		//add.checkAdd();
-		
-		//Prime prime = new Prime();
-		//prime.primeTest();
-		
-	/*	Singleton s = Singleton.getSingleInstance();
-		s.str = "new string";
-		
-		Singleton s2 = Singleton.getSingleInstance();
-		System.out.println(s2.str);
-		*/
-		
-	//	ReflectStudent rs = new ReflectStudent();
-		//rs.reflectOnSTudent();
-	//	
-		//PowerOf2 po2 = new PowerOf2();
-	//	po2.testNumber(8);
-		//Object o = new PowerOf2.Inner();
-	//	Object o2 = po2.Inner();
-		
-	//	MatrixDifference md = new MatrixDifference();
-		//md.calculateDiagonalDifference();
-		
-	//	RankAlgorithmWarmup raw = new RankAlgorithmWarmup();
-		//raw.testCalculate();
-		//raw.testStaircase();
-		//raw.testConvertStandardToMilitary();
-	//	raw.printCircularRotation();
-		
-		//RankOOP oop = new  RankOOP();
-		//oop.testDivisorSum();
-		
-		try {
-		    Calculate cal = new Calculate();
-		    int T = cal.get_int_val();
-		    while (T--> 0) {
-		     double volume = 0.0;
-		     int ch = cal.get_int_val();
-		     if (ch == 1) {
-		      int a = cal.get_int_val();
-		      volume = Calculate.do_calc().get_volume(a);
-		     } else if (ch == 2) {
-		      int l = cal.get_int_val();
-		      int b = cal.get_int_val();
-		      int h = cal.get_int_val();
-		      volume = Calculate.do_calc().get_volume(l, b, h);
 
-		     } else if (ch == 3) {
-		      double r = cal.get_double_val();
-		      volume = Calculate.do_calc().get_volume(r);
+		// runQuickSort();
 
-		     } else if (ch == 4) {
-		      double r = cal.get_double_val();
-		      double h = cal.get_double_val();
-		      volume = Calculate.do_calc().get_volume(r, h);
+		// runBinarySearchTreeTests();
 
-		     }
-		     cal.output.display(volume);
-		    }
+		// Add add = new Add();
+		// add.checkAdd();
 
-		   } catch (NumberFormatException e) {
-		    System.out.print(e);
-		   } catch (IOException e) {
-			   e.printStackTrace();
-	   } 
+		// Prime prime = new Prime();
+		// prime.primeTest();
+
+		/*
+		 * Singleton s = Singleton.getSingleInstance(); s.str = "new string";
+		 * 
+		 * Singleton s2 = Singleton.getSingleInstance(); System.out.println(s2.str);
+		 */
+
+		// ReflectStudent rs = new ReflectStudent();
+		// rs.reflectOnSTudent();
+		//
+		// PowerOf2 po2 = new PowerOf2();
+		// po2.testNumber(8);
+		// Object o = new PowerOf2.Inner();
+		// Object o2 = po2.Inner();
+
+		// MatrixDifference md = new MatrixDifference();
+		// md.calculateDiagonalDifference();
+
+		// RankAlgorithmWarmup raw = new RankAlgorithmWarmup();
+		// raw.testCalculate();
+		// raw.testStaircase();
+		// raw.testConvertStandardToMilitary();
+		// raw.printCircularRotation();
+
+		// RankOOP oop = new RankOOP();
+		// oop.testDivisorSum();
+
+		// FamilyMember fm = new FamilyMember();
+		// fm.testFamilyMember();
+
+		/*
+		 * Java8Play jp = new Java8Play(); jp.testMathJava7(); jp.testMathJava8();
+		 * jp.testMathOther1(); jp.testMathOther2(); jp.testClasses();
+		 */
+
+		// https://jlordiales.me/2012/12/13/the-builder-pattern-in-practice/
+		// User newUser = new User.UserBuilder("Jhon", "Doe").age(30).phone("1234567")
+		// .address("Fake address 1234").build();
+		//
+
+		//Outer.Inner.Private p = new Outer.Inner.Private();
+		//Outer2.Inner.Private p2 = new Outer2.Inner().new Private();
 		
-		
+		//testRobotInAGrid();
+
 		// http://javahungry.blogspot.com/2013/08/difference-between-comparable-and.html
 		/*
 		 * List<Employee> employees = new ArrayList<Employee>(); for (int i = 222000300; i < 30;
@@ -131,11 +105,9 @@ public class PracticeMain {
 		 * { System.out.println(string); } // replace all whitespace with tabs
 		 * System.out.println(EXAMPLE_TEST.replaceAll("\\s+", "\t"));
 		 */
-		/*
-		 * RobotInAGrid newRobot = new RobotInAGrid(10, 12); newRobot.initialize();
-		 * newRobot.printMatrix(); newRobot.computeDistance(); newRobot.printMatrix();
-		 * newRobot.callPath();
-		 */
+		
+
+		 
 
 		// Chapter 1. problem 8
 		/*
@@ -178,6 +150,18 @@ public class PracticeMain {
 		 * String fruitToCompare2 = "Kiwi"; Fruit f2 = bs.searchFruit(fruitToCompare2);
 		 */
 		
+		
+		for (int i =8; i< 300; i=i+50){
+			formatCheck("Anna"+i, i);
+		}
+		
+
+	}
+	
+	
+	public static void formatCheck(String name, int number){
+		//left aligh and pad 1 5 characters, digit pad with 0s
+		System.out.printf("%-15s%03d\n", name, number);
 	}
 
 	// // Notes from Other problmes
@@ -231,47 +215,98 @@ public class PracticeMain {
 	 * 40); romanToArabicMap.put("X", 10); romanToArabicMap.put("IX", 9); romanToArabicMap.put("V",
 	 * 5); romanToArabicMap.put("IV", 4); romanToArabicMap.put("I", 1); }
 	 */
-
 	
-	public void varArgsCheck(){
+	public static void testRobotInAGrid(){
 		
-		
+		 RobotInAGrid newRobot = new RobotInAGrid(10, 12); 
+		 newRobot.initialize();
+		 newRobot.printMatrix();
+		 newRobot.computeDistance(); 
+		 newRobot.printMatrix();
+		  newRobot.callPath();
 	}
 
-	public static void runBinarySearchTreeTests(){
-		List<Integer> listOfNumbers  = new ArrayList<Integer> (Arrays.asList(46,32,20,38,18,26,34,42,33,40,44, 50,53,68));
+	public void testNestedInterface() {
+
+		Showable.Message message = new TestNestedInterface();// upcasting here
+		message.msg();
+
+	}
+
+	public void testCalculator() {
+
+		try {
+			Calculate cal = new Calculate();
+			int T = cal.get_int_val();
+			while (T-- > 0) {
+				double volume = 0.0;
+				int ch = cal.get_int_val();
+				if (ch == 1) {
+					int a = cal.get_int_val();
+					volume = Calculate.do_calc().get_volume(a);
+				} else if (ch == 2) {
+					int l = cal.get_int_val();
+					int b = cal.get_int_val();
+					int h = cal.get_int_val();
+					volume = Calculate.do_calc().get_volume(l, b, h);
+
+				} else if (ch == 3) {
+					double r = cal.get_double_val();
+					volume = Calculate.do_calc().get_volume(r);
+
+				} else if (ch == 4) {
+					double r = cal.get_double_val();
+					double h = cal.get_double_val();
+					volume = Calculate.do_calc().get_volume(r, h);
+
+				}
+				cal.output.display(volume);
+			}
+
+		} catch (NumberFormatException e) {
+			System.out.print(e);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void varArgsCheck() {
+
+	}
+
+	public static void runBinarySearchTreeTests() {
+		List<Integer> listOfNumbers = new ArrayList<Integer>(Arrays.asList(46, 32, 20, 38, 18, 26,
+				34, 42, 33, 40, 44, 50, 53, 68));
 		BinarySearchTree bst = new BinarySearchTree();
 		System.out.println("Insert");
-		for (Integer num: listOfNumbers){
+		for (Integer num : listOfNumbers) {
 			bst.insert(num);
 		}
-	
+
 		System.out.println("\nFind");
 		BinarySearchTreeNode found = bst.find(44);
-		if (found == null){
+		if (found == null) {
 			System.out.println("Node not found.");
-		}else {
+		} else {
 			System.out.println(found);
 		}
-		
-		
-		
-	}
-	
-	public static void runQuickSort(){
-		
 
-		List<Integer> listToSort  = new ArrayList<Integer> (Arrays.asList(12,2,86,6,24,8,9,36,99,4));
+	}
+
+	public static void runQuickSort() {
+
+		List<Integer> listToSort = new ArrayList<Integer>(Arrays.asList(12, 2, 86, 6, 24, 8, 9, 36,
+				99, 4));
 		QuickSort qs = new QuickSort(listToSort);
 		qs.printList();
 		qs.sort();
 		qs.printList();
-		
 
 	}
-	
-	public void runDijstra(){
-		
+
+	public void runDijstra() {
+
 		DNode source = new DNode("a");
 		DNode nodeA = new DNode("a");
 		DNode nodeB = new DNode("b");

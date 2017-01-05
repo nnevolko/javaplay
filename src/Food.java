@@ -27,6 +27,7 @@ class FoodFactory {
 		} else if (order.toLowerCase().equals("cake")) {
 			return new Cake();
 		}
+		
 		return null;
 	}
 }

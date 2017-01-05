@@ -8,7 +8,6 @@ public class PracticeException extends Exception {
 
 	public PracticeException() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public PracticeException(String message, Throwable cause, boolean enableSuppression,

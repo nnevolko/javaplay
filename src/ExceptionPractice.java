@@ -1,6 +1,6 @@
-	/*
-	 * nnevolko
-	 */
+/*
+ * nnevolko
+ */
 
 public class ExceptionPractice {
 
@@ -32,4 +32,21 @@ public class ExceptionPractice {
 		}
 		return a * b;
 	}
+	
+	
+	// catch parsing exception, divide by zero exception, overwrite one of the exceptions.
+	public void testDifferent(String xInput, String yInput) {
+		try {
+			int x = Integer.parseInt(xInput);
+			int y = Integer.parseInt(yInput);
+			System.out.println(x / y);
+
+		} catch (java.lang.NumberFormatException e) {
+			System.out.println("java.util.InputMismatchException");
+		} catch (java.lang.ArithmeticException ae) {
+			System.out.println(ae);
+		}
+
+	}
+
 }
