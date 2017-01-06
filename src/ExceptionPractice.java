@@ -32,8 +32,7 @@ public class ExceptionPractice {
 		}
 		return a * b;
 	}
-	
-	
+
 	// catch parsing exception, divide by zero exception, overwrite one of the exceptions.
 	public void testDifferent(String xInput, String yInput) {
 		try {
@@ -47,6 +46,29 @@ public class ExceptionPractice {
 			System.out.println(ae);
 		}
 
+	}
+
+	class MyCalculator {
+		
+		public int power(int n, int p) throws Exception {
+			int result = 0;
+			if (n < 0 || p < 0) {
+				throw new java.lang.Exception("n and p should be non-negative");
+			}
+			result = (int) Math.pow(n, p);
+			return result;
+		}
+		
+	}
+
+	public void testPower(int n, int p) {
+
+		MyCalculator my_calculator = new MyCalculator();
+		try {
+			System.out.println(my_calculator.power(n, p));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

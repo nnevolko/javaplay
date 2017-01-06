@@ -150,14 +150,40 @@ public class PracticeMain {
 		 * String fruitToCompare2 = "Kiwi"; Fruit f2 = bs.searchFruit(fruitToCompare2);
 		 */
 		
-		
+	/*	
 		for (int i =8; i< 300; i=i+50){
 			formatCheck("Anna"+i, i);
-		}
+		}*/
 		
+		//testArrayFun();
+		testRegexFun();
 
 	}
 	
+	
+	public static void testRegexFun(){
+		RegexFun rf  = new RegexFun();
+		rf.testTokenizer();
+		rf.testIsIpAddress();
+		
+	}
+	public static void testArrayFun(){
+		
+		
+		ArrayFun af = new ArrayFun();
+	/*	af.testIsPalindrome();
+		System.out.println("\n");
+		af.testIsAnagram();
+		//af.testIsAnagram2();
+		af.testStrings("hello",  "Java");
+		af.testStrings("java", "java");
+		af.testStrings("vuu", "vuuuuu");
+		
+		af.testStringCompare();*/
+
+		
+
+	}
 	
 	public static void formatCheck(String name, int number){
 		//left aligh and pad 1 5 characters, digit pad with 0s
