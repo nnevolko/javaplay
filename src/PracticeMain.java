@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import trie.Trie;
+
 public class PracticeMain {
 
 	public static final String EXAMPLE_TEST = "This is my small example "
@@ -59,10 +61,10 @@ public class PracticeMain {
 		// .address("Fake address 1234").build();
 		//
 
-		//Outer.Inner.Private p = new Outer.Inner.Private();
-		//Outer2.Inner.Private p2 = new Outer2.Inner().new Private();
-		
-		//testRobotInAGrid();
+		// Outer.Inner.Private p = new Outer.Inner.Private();
+		// Outer2.Inner.Private p2 = new Outer2.Inner().new Private();
+
+		// testRobotInAGrid();
 
 		// http://javahungry.blogspot.com/2013/08/difference-between-comparable-and.html
 		/*
@@ -105,9 +107,6 @@ public class PracticeMain {
 		 * { System.out.println(string); } // replace all whitespace with tabs
 		 * System.out.println(EXAMPLE_TEST.replaceAll("\\s+", "\t"));
 		 */
-		
-
-		 
 
 		// Chapter 1. problem 8
 		/*
@@ -149,44 +148,180 @@ public class PracticeMain {
 		 * 
 		 * String fruitToCompare2 = "Kiwi"; Fruit f2 = bs.searchFruit(fruitToCompare2);
 		 */
-		
-	/*	
-		for (int i =8; i< 300; i=i+50){
-			formatCheck("Anna"+i, i);
-		}*/
+
+		/*
+		 * for (int i =8; i< 300; i=i+50){ formatCheck("Anna"+i, i); }
+		 */
+
+		// testArrayFun();
+		// testRegexFun();
+		// testTrie();
+
+
 		
 		//testArrayFun();
-		testRegexFun();
+		
+		onyxTests();
+		
+	}
+	
 
+
+	public static void onyxTests() {
+		
+		//test StringBuffer and String -> ArrayFun.. 
+		
+		String[] params0 = {};
+		testArgs(params0);
+
+		KantTest kt = new KantTest();
+		kt.testKant();
+
+		IntegerTest it = new IntegerTest();
+		it.testIntegerTest();
+
+		BoggyTest bg = new BoggyTest();
+		bg.testBoggyTest();
+
+		PriorityQueueTest pq = new PriorityQueueTest();
+		pq.testPriorityTest();
+		
+		testVibrateEcho();
+		testHummingbird();
+		
+		ChillisTest ct = new ChillisTest();
+		String[] params = {"green", "4"};
+		ct.testChilli(params);
+		
+		testRegex();
+		
+		testExceptionHierarchy();
+		testBig();
+		testException();
 	}
 	
 	
-	public static void testRegexFun(){
-		RegexFun rf  = new RegexFun();
+	public static void testBig(){
+		Weighty w = new Weighty();
+		
+	}
+	
+	public static void testExceptionHierarchy(){
+		
+		SticksMud sm = new SticksMud();
+		sm.testSticksMud();
+
+	}
+	
+	public static void testException(){
+		MacPro mp = new MacPro();
+	}
+	public static void testRegex(){
+		
+	/*	Given this code in a method:
+	         5.     String s = "dogs. with words.";
+	         6.     // insert code here
+	         7.     for(String o: output)
+	         8.       System.out.print(o + " ");
+	Which of the following, inserted independently at line 6, will produce output that contains the String "dogs"? (Choose all that apply.)
+	A. String[]output=s.split("s");
+	B. String[]output=s.split("d");
+	C. String[] output = s.split("\\d");
+	D. String[] output = s.split("\\s");
+	E. String[]output=s.split("\\w");
+	F. String[] output = s.split("\\.");
+	*/
+		
+		String s = "dogs.with words.";
+		String[]output=s.split("s");
+		
+		System.out.println("0:" +output[0]);
+		
+		String[] output1=s.split("d");
+		System.out.println("1:" +output1[0]);
+		
+		String[] output2 = s.split("\\d");
+		System.out.println("2:" +output2[0]);
+		
+		String[] output3 = s.split("\\s");
+		System.out.println("3:" +output3[0]);
+		
+		String[]output4=s.split("\\w");
+		System.out.println("4:" +output4[0]);
+		
+		String[] output5 = s.split("\\.");
+		System.out.println("5:" +output5[0]);
+		
+	}
+	
+	public static void testArgs(String[] args){
+		try {
+			if (args.length == 0)
+				throw new Exception();
+		} catch (Exception e) {
+			System.out.print("done ");
+			// doStuff(); // assume this method compiles
+		} finally {
+			System.out.println("finally ");
+		}
+	}
+
+	public static void testHummingbird() {
+
+		HummingbirdTest hb = new HummingbirdTest();
+		hb.testHummingbird();
+	}
+
+	public static void testVibrateEcho() {
+		VibrateEcho t = new VibrateEcho();
+		t.test();
+
+	}
+
+	public static void testTrie() {
+
+		Trie t = new Trie();
+		List<String> words = Arrays.asList("cat", "camera", "word");
+		for (String word : words) {
+			t.insert(word);
+		}
+		t.printWords();
+
+		String prefix = "ca";
+		System.out.println("Print words with prefix : " + prefix);
+		List<String> words2 = (List<String>) t.findWordsByPrefix(prefix);
+		for (String word : words2) {
+			System.out.println(word);
+		}
+	}
+
+	public static void testRegexFun() {
+		RegexFun rf = new RegexFun();
 		rf.testTokenizer();
 		rf.testIsIpAddress();
-		
+
 	}
-	public static void testArrayFun(){
-		
-		
+
+	public static void testArrayFun() {
+
 		ArrayFun af = new ArrayFun();
-	/*	af.testIsPalindrome();
+		af.testStringBufferString();
+		/*
+		af.testIsPalindrome();
 		System.out.println("\n");
-		af.testIsAnagram();
-		//af.testIsAnagram2();
-		af.testStrings("hello",  "Java");
+		af.testIsAnagram();// 2n, On
+		af.testIsAnagram2(); // sort O2nlogn+n
+		af.testStrings("hello", "Java");
 		af.testStrings("java", "java");
 		af.testStrings("vuu", "vuuuuu");
-		
-		af.testStringCompare();*/
-
-		
+		af.testStringCompare();
+		af.testIsPrime();
+		*/
 
 	}
-	
-	public static void formatCheck(String name, int number){
-		//left aligh and pad 1 5 characters, digit pad with 0s
+
+	public static void formatCheck(String name, int number) {
+		// left aligh and pad 1 5 characters, digit pad with 0s
 		System.out.printf("%-15s%03d\n", name, number);
 	}
 
@@ -241,15 +376,15 @@ public class PracticeMain {
 	 * 40); romanToArabicMap.put("X", 10); romanToArabicMap.put("IX", 9); romanToArabicMap.put("V",
 	 * 5); romanToArabicMap.put("IV", 4); romanToArabicMap.put("I", 1); }
 	 */
-	
-	public static void testRobotInAGrid(){
-		
-		 RobotInAGrid newRobot = new RobotInAGrid(10, 12); 
-		 newRobot.initialize();
-		 newRobot.printMatrix();
-		 newRobot.computeDistance(); 
-		 newRobot.printMatrix();
-		  newRobot.callPath();
+
+	public static void testRobotInAGrid() {
+
+		RobotInAGrid newRobot = new RobotInAGrid(10, 12);
+		newRobot.initialize();
+		newRobot.printMatrix();
+		newRobot.computeDistance();
+		newRobot.printMatrix();
+		newRobot.callPath();
 	}
 
 	public void testNestedInterface() {

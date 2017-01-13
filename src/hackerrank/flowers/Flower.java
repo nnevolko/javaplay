@@ -1,8 +1,14 @@
 package hackerrank.flowers;
+import static pkg.StaticFun.*;
 
  class Flower {
 	String whatsYourName(){
+	  pkg.StaticFun.func();
+	  System.out.println(a);
+		func();
 		return "I have my names and types";
+
+		
 	}
 }
 

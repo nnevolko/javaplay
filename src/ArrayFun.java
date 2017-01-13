@@ -39,12 +39,34 @@ public class ArrayFun {
 
 	public void testIsPalindrome() {
 
-		List<String> palindromes = Arrays.asList("madam", "kayak", "anna", "random");
+		List<String> palindromes = Arrays.asList("madam", "kayak", "anna", "random", "ankana",
+				"anrrna");
 
 		for (String temp : palindromes) {
 			System.out.println(temp + ": " + isPalindrome(temp));
 		}
 
+	}
+	
+	public boolean isPrime(int number){
+		boolean prime = true;
+		for (int i =2; i<= Math.sqrt(number); i++){
+			if (number % i == 0){
+				prime = false;
+				break;
+			}
+		}
+		
+		return prime;
+		
+	}
+
+	public void testIsPrime() {
+
+		List<Integer> integers = Arrays.asList(3, 15, 30, 45, 99, 7, 11, 25);
+		for (Integer num: integers){
+			System.out.println(num +" is prime: "+ isPrime(num));
+		}
 	}
 
 	// two strings and are called anagrams if they consist same characters, but may be in different
@@ -220,6 +242,38 @@ public class ArrayFun {
 		String shortString = "elcometojava";
 		stringCompare(shortString, 3);
 
+	}
+	
+	
+	public void testStringBufferString(){
+		
+		
+		StringBuffer sb1 = new StringBuffer("hi");
+		StringBuffer sb2 = new StringBuffer(sb1);
+		StringBuffer sb3 = sb2;
+		
+		String s1 = "hi";
+		String s2 = new String("hi");
+		String s3 = s2;
+		
+		if (sb1.equals(sb2)){
+			System.out.println("1 ");
+		}
+		if (sb2.equals(sb3)){
+			System.out.println("2 ");
+		}
+		
+		if (sb3.equals(s1)){
+			System.out.println("3 ");
+		}
+		
+		if (s1.equals(s2)){
+			System.out.println("4 ");
+		}
+		
+		if (s2.equals(s3)){
+			System.out.println("5 ");
+		}
 	}
 
 
