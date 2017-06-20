@@ -1,11 +1,16 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.List;
+import java.util.Scanner;
 
 import trie.Trie;
 
 public class PracticeMain {
+	
+	
+	public static int balance = 0;
 
 	public static final String EXAMPLE_TEST = "This is my small example "
 			+ "string which I'm going to " + "use for pattern matching.";
@@ -157,20 +162,117 @@ public class PracticeMain {
 		// testRegexFun();
 		// testTrie();
 
+		// testArrayFun();
 
+		// onyxTests();
+
+		// ObjectFun of = new ObjectFun();
+		// of.testPlayerCompare();
+
+		// ParenthesisStack ps = new ParenthesisStack();
+		// ps.testBalanced();
+
+	//	GenericsFun gf = new GenericsFun();
+		//gf.testPrintArray();
 		
-		//testArrayFun();
-		
-		onyxTests();
-		
+		//testCalculateBalance();
+		testArrayFun();
+
 	}
 	
+	public static void testCalculateBalance (){
+		int[] credits = {250, 250};
+		int[] debits ={500};
+		int result = calculateBalance (5000, credits, debits );
+		System.out.println( result == 5000);
+	}
+	
+	public static int calculateBalance(int currentBalance, int[]credits, int []debits){
+		
+		balance = currentBalance;
+		for (int i =0 ;i<credits.length; i++){
+			currentBalance +=credits[i];
+		}
+		for (int i = 0; i<debits.length; i++){
+			currentBalance-= debits[i];
+		}
+		
+		//return currentBalance;
+		balance = currentBalance;
+		return balance;
+	}
 
+	public static void testBitSets() {
+		/*
+		 * 
+		5 4
+AND 1 2
+SET 1 4
+FLIP 2 2
+OR 2 1
+		 */
+
+        Scanner sc = new Scanner(System.in);
+       int size = sc.nextInt();
+       BitSet b1set = new BitSet(size);
+       BitSet b2set = new BitSet(size);
+       
+       for (int j = 0; j< size; j++){
+          	b1set.set(j, false);
+	        b2set.set(j, false);
+       }
+       
+      	int numberOfQuestions = sc.nextInt();
+		for (int i = 0; i < numberOfQuestions; i++) {
+			String operation = sc.next();
+			if ((operation.toUpperCase()).equals("AND") || (operation.toUpperCase()).equals("OR")
+					|| (operation.toUpperCase()).equals("XOR")) {
+				BitSet source;
+				BitSet destination;
+				int value1 = sc.nextInt();
+				int value2 = sc.nextInt();
+				if (value1 == 2 && value2 == 1) {
+					destination = b2set;
+					source = b1set;
+				} else {
+					destination = b1set;
+					source = b2set;
+				}
+				if ((operation.toUpperCase()).equals("AND")) {
+					destination.and(source);
+				} else if ((operation.toUpperCase()).equals("OR")) {
+					destination.or(source);
+				} else if (operation.toUpperCase().equals("XOR")) {
+					destination.xor(source);
+				}
+
+			} else if ((operation.toUpperCase()).equals("FLIP")  ||          
+                     (operation.toUpperCase()).equals("SET")) {
+               BitSet destination;
+               int set = sc.nextInt();
+				int index = sc.nextInt();
+				if (set == 1 ) {
+					destination = b1set;
+				} else {
+					destination = b2set;
+				}
+               
+               if ((operation.toUpperCase()).equals("FLIP")){
+                  destination.flip(index);
+               }else if ((operation.toUpperCase()).equals("SET")) {
+                    destination.set(index);
+               }
+               
+			}
+           System.out.println(b1set.cardinality() + " " + b2set.cardinality());
+       }
+     
+	}
 
 	public static void onyxTests() {
-		
-		//test StringBuffer and String -> ArrayFun.. 
-		
+
+		// test StringBuffer and String -> ArrayFun..
+
 		String[] params0 = {};
 		testArgs(params0);
 
@@ -185,76 +287,71 @@ public class PracticeMain {
 
 		PriorityQueueTest pq = new PriorityQueueTest();
 		pq.testPriorityTest();
-		
+
 		testVibrateEcho();
 		testHummingbird();
-		
+
 		ChillisTest ct = new ChillisTest();
-		String[] params = {"green", "4"};
+		String[] params = { "green", "4" };
 		ct.testChilli(params);
-		
+
 		testRegex();
-		
+
 		testExceptionHierarchy();
 		testBig();
 		testException();
 	}
-	
-	
-	public static void testBig(){
+
+	public static void testBig() {
 		Weighty w = new Weighty();
-		
+
 	}
-	
-	public static void testExceptionHierarchy(){
-		
+
+	public static void testExceptionHierarchy() {
+
 		SticksMud sm = new SticksMud();
 		sm.testSticksMud();
 
 	}
-	
-	public static void testException(){
+
+	public static void testException() {
 		MacPro mp = new MacPro();
 	}
-	public static void testRegex(){
-		
-	/*	Given this code in a method:
-	         5.     String s = "dogs. with words.";
-	         6.     // insert code here
-	         7.     for(String o: output)
-	         8.       System.out.print(o + " ");
-	Which of the following, inserted independently at line 6, will produce output that contains the String "dogs"? (Choose all that apply.)
-	A. String[]output=s.split("s");
-	B. String[]output=s.split("d");
-	C. String[] output = s.split("\\d");
-	D. String[] output = s.split("\\s");
-	E. String[]output=s.split("\\w");
-	F. String[] output = s.split("\\.");
-	*/
-		
+
+	public static void testRegex() {
+
+		/*
+		 * Given this code in a method: 5. String s = "dogs. with words."; 6. // insert code here 7.
+		 * for(String o: output) 8. System.out.print(o + " "); Which of the following, inserted
+		 * independently at line 6, will produce output that contains the String "dogs"? (Choose all
+		 * that apply.) A. String[]output=s.split("s"); B. String[]output=s.split("d"); C. String[]
+		 * output = s.split("\\d"); D. String[] output = s.split("\\s"); E.
+		 * String[]output=s.split("\\w"); F. String[] output = s.split("\\.");
+		 */
+
 		String s = "dogs.with words.";
-		String[]output=s.split("s");
-		
-		System.out.println("0:" +output[0]);
-		
-		String[] output1=s.split("d");
-		System.out.println("1:" +output1[0]);
-		
+		String[] output = s.split("s");
+
+		System.out.println("0:" + output[0]);
+
+		String[] output1 = s.split("d");
+		System.out.println("1:" + output1[0]);
+
 		String[] output2 = s.split("\\d");
-		System.out.println("2:" +output2[0]);
-		
+		System.out.println("2:" + output2[0]);
+
 		String[] output3 = s.split("\\s");
-		System.out.println("3:" +output3[0]);
-		
-		String[]output4=s.split("\\w");
-		System.out.println("4:" +output4[0]);
-		
+		System.out.println("3:" + output3[0]);
+
+		String[] output4 = s.split("\\w");
+		System.out.println("4:" + output4[0]);
+
 		String[] output5 = s.split("\\.");
-		System.out.println("5:" +output5[0]);
-		
+		System.out.println("5:" + output5[0]);
+
 	}
-	
-	public static void testArgs(String[] args){
+
+	public static void testArgs(String[] args) {
 		try {
 			if (args.length == 0)
 				throw new Exception();
@@ -305,19 +402,17 @@ public class PracticeMain {
 	public static void testArrayFun() {
 
 		ArrayFun af = new ArrayFun();
-		af.testStringBufferString();
+		// af.testStringBufferString();
 		/*
-		af.testIsPalindrome();
-		System.out.println("\n");
-		af.testIsAnagram();// 2n, On
-		af.testIsAnagram2(); // sort O2nlogn+n
-		af.testStrings("hello", "Java");
-		af.testStrings("java", "java");
-		af.testStrings("vuu", "vuuuuu");
-		af.testStringCompare();
-		af.testIsPrime();
-		*/
+		 * af.testIsPalindrome(); System.out.println("\n"); af.testIsAnagram();// 2n, On
+		 * af.testIsAnagram2(); // sort O2nlogn+n af.testStrings("hello", "Java");
+		 * af.testStrings("java", "java"); af.testStrings("vuu", "vuuuuu"); af.testStringCompare();
+		 * af.testIsPrime();
+		 */
 
+		// af.testMaxSumHourglass();
+		//af.testCalcNegativeSubarrays();
+		af.testSet();
 	}
 
 	public static void formatCheck(String name, int number) {

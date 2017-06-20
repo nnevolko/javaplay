@@ -1,3 +1,9 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 
 public class GenericsFun {
 
@@ -23,6 +29,7 @@ public class GenericsFun {
 		  return max;
 	  }
 	  
+	  
 	  public void testMaximum(){
 
 		      System.out.printf("Max of %d, %d and %d is %d\n\n", 
@@ -37,13 +44,32 @@ public class GenericsFun {
 	  }
 	  
 		
-	  public  <E> void printArray( E[] inputArray ) {
+	  // why is there <E> ???
+	  public  <T> void printArray( T[] inputArray ) {
 	      // Display array elements
-	      for(E element : inputArray) {
+	      for(T element : inputArray) {
 	         System.out.printf("%s ", element);
 	      }
 	      System.out.println();
 	   }
+	  
+	  
+	  public  <T> void printArray( List<T> inputArray ) {
+	      // Display array elements
+	      for(T element : inputArray) {
+	         System.out.printf("%s ", element);
+	      }
+	      System.out.println();
+	   }
+	  
+	  public  <T> void printArray( Collection<T> inputArray ) {
+	      // Display array elements
+	      for(T element : inputArray) {
+	         System.out.printf("%s ", element);
+	      }
+	      System.out.println();
+	   }
+	  
 
 	  public void testPrintArray(){
 		  // Create arrays of Integer, Double and Character
@@ -59,7 +85,44 @@ public class GenericsFun {
 
 	      System.out.println("\nArray characterArray contains:");
 	      printArray(charArray);   // pass a Character array
+	      
+	      List<String> listOne = Collections.emptyList();
+	    //  listOne.add("b");
+	    //  listOne.add("c");
 		  
 	  }
 	  
+	  public void testPrintList(){
+		  List<Integer> li = Arrays.asList(1, 2, 3);
+		  List<String>  ls = Arrays.asList("one", "two", "three");
+		  printList(li);
+		  printList(ls);
+		  
+		  
+		  List<?> foo = new ArrayList<Object>();
+	      
+	      //
+	  }
+	  
+	  public  void printList(List<?> list) {
+		    for (Object elem: list)
+		        System.out.print(elem + " ");
+		    System.out.println();
+		}
+	  
+	  
 }
+
+
+class NaturalNumber<T extends Integer> {
+
+    private T n;
+
+    public NaturalNumber(T n)  { this.n = n; }
+
+    public boolean isEven() {
+        return n % 2 == 0;
+    }
+
+}
+
