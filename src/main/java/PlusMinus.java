@@ -12,7 +12,7 @@ public class PlusMinus {
 	 * proportion of positive values proportion of negative values proportion of
 	 * zeros
 	 */
-	public void plusMinus(List<Integer> arr) {
+	public List<String> plusMinus(List<Integer> arr) {
 
 		List<Integer> positives = new ArrayList<Integer>();
 		List<Integer> negatives = new ArrayList<Integer>();
@@ -37,9 +37,12 @@ public class PlusMinus {
 		resultArray[1] = negatives.size()/(double)totalNumbers;
 		resultArray[2] = zeroCounter/(double)totalNumbers;
 
+		List<String> results = new ArrayList<String>();
 		for (double num : resultArray) {
-			System.out.println(String.format("%.6f", num));
+			results.add(String.format("%.6f", num));
 		}
+		
+		return results;
 	}
 
 }
