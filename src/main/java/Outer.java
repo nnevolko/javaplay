@@ -1,3 +1,5 @@
+package main.java;
+
 public class Outer {
 
 	// access modifier is not important here??

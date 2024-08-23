@@ -1,3 +1,5 @@
+package main.java;
+
 class Cake {
 
 	private final double sugar; // cup

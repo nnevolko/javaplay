@@ -1,3 +1,5 @@
+package main.java;
+
 public class Outer2 {
 
 	static class Inner {

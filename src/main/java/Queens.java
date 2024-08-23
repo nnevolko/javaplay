@@ -1,3 +1,5 @@
+package main.java;
+
 public class Queens {
 	/*
 	 * nnevolko 11/20
