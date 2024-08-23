@@ -142,53 +142,13 @@ public class RankAlgorithmWarmup {
 
 		int newIndex = 0;
 		for (int m : mArray) {
-			k = k%n;
+			k = k % n;
 			newIndex = m - k;
 			if (newIndex < 0) {
 				newIndex = n + newIndex;
 			}
 			System.out.println(originalArray[newIndex]);
 		}
-
-	}
-
-	public void convertStandardToMilitary(String time) {
-
-		String hourStr = time.substring(0, 2);
-		String minStr = time.substring(3, 5);
-		String secStr = time.substring(6, 8);
-		String partOfDay = time.substring(8, 10);
-
-		int hour = Integer.parseInt(hourStr);
-		int minute = Integer.parseInt(minStr);
-		int second = Integer.parseInt(secStr);
-
-		if (hour == 12) {
-			if ((partOfDay.toLowerCase()).equals("am")) {
-				hour = 0;
-			}
-		}
-
-		if ((partOfDay.toLowerCase()).equals("pm")) {
-			if (hour != 12) {
-				hour += 12;
-			}
-		}
-
-		System.out.printf("%02d:%02d:%02d\n", hour, minute, second);
-
-	}
-
-	public void testConvertStandardToMilitary() {
-
-		String sampleTime1 = "12:05:30PM";
-		String sampleTime2 = "07:05:45PM";
-		String sampleTime3 = "07:05:45AM";
-		String sampleTime5 = "12:05:30AM";
-		convertStandardToMilitary(sampleTime1);
-		convertStandardToMilitary(sampleTime2);
-		convertStandardToMilitary(sampleTime3);
-		convertStandardToMilitary(sampleTime5);
 
 	}
 
