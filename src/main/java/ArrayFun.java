@@ -8,11 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
-
-import javax.xml.stream.events.Characters;
 
 public class ArrayFun {
 
@@ -477,6 +472,48 @@ public class ArrayFun {
 		Set<String> union = new HashSet<>(newSet);
 		union.addAll(otherNames);
 		System.out.println(union.toString());
+	}
+	
+	public List<Integer> mergeSortedArrays(List<Integer> list1, List<Integer> list2){
+		List<Integer> mergedList = new ArrayList<>();
+		
+		int list1Index = 0;
+		int list2Index = 0;
+		for (int i = 0; i< list1.size() + list2.size(); i++){
+			
+			// check that we didn't reach the end of the list
+			if (list1Index < list1.size() ){
+				if (list1.get(list1Index)<= list2.get(list2Index)){
+					mergedList.add(list1.get(list1Index));
+					list1Index++;
+				} else {
+					if (list2Index < list2.size()){
+						mergedList.add(list2.get(list2Index));
+						list2Index++;
+					}
+					else {
+						mergedList.add(list1.get(list1Index));
+						list1Index++;
+					}
+				}
+			} else {
+				mergedList.add(list2.get(list2Index));
+				list2Index++;				
+			}
+		}
+		
+		return mergedList;
+	}
+	
+	public void testSortedArrayMerge(){
+		
+		List<Integer> list1 = Arrays.asList(4,6,9,30,88, 99);
+		List<Integer> list2 = Arrays.asList(2,8,44, 88,92, 102 );
+		List<Integer> resultingList = mergeSortedArrays(list1, list2);
+		
+		resultingList.forEach(System.out::println);
+
+		
 	}
 	
 	public void testMap(){

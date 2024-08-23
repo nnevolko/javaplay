@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import trie.Trie;
 
@@ -172,12 +174,110 @@ public class PracticeMain {
 		// ParenthesisStack ps = new ParenthesisStack();
 		// ps.testBalanced();
 
-	//	GenericsFun gf = new GenericsFun();
-		//gf.testPrintArray();
+		GenericsFun gf = new GenericsFun();
+		gf.testIsEqual();
 		
 		//testCalculateBalance();
-		testArrayFun();
+		//testArrayFun();
+		
+		//testRegexFun();
+		
+		//testArrayFun();
+		
+		//Cake whiteCake = new Cake.Builder().sugar(1).butter(0.5). eggs(2).vanila(2).flour(1.5). bakingpowder(0.75).milk(0.5).build();
+	    
+		//Cake blackForestCake = new Cake.Builder().bakingpowder(1.5).bakingsoda(.75).eggs(3).salt(0.75).build();// etc
+        //Cake is ready to eat :)
+       // System.out.println(whiteCake);
+        
+        //testPlusMinus();
+        
+        //testMinMaxSum();
+		//testEvenNumbers();
+		
+		//testQueryForStrings();
+		testDiagonalDifference();
+        
 
+	}
+	
+	public static void testDiagonalDifference() {
+		
+		
+		DiagonalDifference dd = new DiagonalDifference();
+		List<Integer> row1 = new ArrayList<Integer>();
+		row1 = Stream.of(11,2,4).collect(Collectors.toList());
+		List<Integer> row2 = new ArrayList<Integer>();
+		row2 = Stream.of(4,5,6).collect(Collectors.toList());
+		List<Integer> row3 = new ArrayList<Integer>();
+		row3 = Stream.of(10,8,-12).collect(Collectors.toList());
+		
+		List<List<Integer>> listOfLists = new ArrayList<>();
+		listOfLists.add(row1);
+		listOfLists.add(row2);
+		listOfLists.add(row3);
+		
+		int result = dd.calculateAbsoluteDiagonalDifference(listOfLists);
+		
+		System.out.println(result);
+	}
+	
+	public static void testQueryForStrings() {
+		
+		QueryForStrings qfs= new QueryForStrings();
+		List<String> strings = new ArrayList<String>();
+		strings = Stream.of("aba", "baba","aba","xzxb").collect(Collectors.toList());
+		List<String> queries = new ArrayList<String>();
+		queries = Stream.of("aba","xzxb","ab").collect(Collectors.toList());
+		List<Integer> numOfOccurances = qfs.matchStrings(strings, queries);
+		
+		System.out.println(numOfOccurances.toString());
+		
+	}
+	
+	public static void testEvenNumbers() {
+		
+		EvenNumbers en = new EvenNumbers();
+		en.printEvenNumbers(0, 100);
+	}
+	
+
+	public static void testMinMaxSum() {
+		
+		MinMaxSum mms = new MinMaxSum();
+		int[] intArray = new int[] {1,3,5,7,9};
+		int[] intArray2 = new int[] {1,2,3,4,5};
+		
+
+        Integer[] arr = Arrays.stream( intArray ).boxed().toArray( Integer[]::new );
+        List<Integer> intList = Arrays.asList(arr);
+		mms.miniMaxSum(intList);
+		
+		Integer[] arr2 = Arrays.stream( intArray2 ).boxed().toArray( Integer[]::new );
+        List<Integer> intList2 = Arrays.asList(arr2);
+		mms.miniMaxSum(intList2);
+		
+	}
+	public static void testPlusMinus() {
+		PlusMinus pm = new PlusMinus();
+		
+		int[] intArray = new int[] {1,1, 0, -1, -1};
+		
+
+        Integer[] arr = Arrays.stream( intArray ).boxed().toArray( Integer[]::new );
+        List<Integer> intList = Arrays.asList(arr);
+        
+        
+        int[] intArray2 = new int[] {-4, 3, -9, 0, 4, 1};
+        List<Integer> intList2 = Arrays.stream(intArray2).boxed().collect(Collectors.toList());
+ 
+        System.out.println("______________");
+		pm.plusMinus(intList);
+		System.out.println("______________");
+		pm.plusMinus(intList2);
+		System.out.println("______________");
+		
+		
 	}
 	
 	public static void testCalculateBalance (){
@@ -396,6 +496,7 @@ OR 2 1
 		RegexFun rf = new RegexFun();
 		rf.testTokenizer();
 		rf.testIsIpAddress();
+		rf.testTrimAccountName();
 
 	}
 
@@ -412,7 +513,8 @@ OR 2 1
 
 		// af.testMaxSumHourglass();
 		//af.testCalcNegativeSubarrays();
-		af.testSet();
+		af.testSortedArrayMerge();
+		
 	}
 
 	public static void formatCheck(String name, int number) {

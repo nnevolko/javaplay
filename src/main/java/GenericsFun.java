@@ -6,7 +6,6 @@ import java.util.List;
 
 
 public class GenericsFun {
-
 	
 	  public  <T extends Comparable<T>> T maximumFrom3(T x, T y, T z) {
 	      T max = x;   // assume x is initially the largest
@@ -111,6 +110,18 @@ public class GenericsFun {
 		}
 	  
 	  
+	  public <T> boolean isEqual (T num1, T num2){
+		  return num1.equals(num2);
+	  }
+	  
+	  
+	  public void testIsEqual(){  
+		  boolean result = this.isEqual(34, 44);
+		  System.out.println(result);  
+		  
+		  
+		  
+	  }
 }
 
 

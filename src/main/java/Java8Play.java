@@ -1,10 +1,16 @@
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.*;
-
-import static java.util.stream.Collectors.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Java8Play {
 
@@ -12,7 +18,61 @@ public class Java8Play {
 	private List<Integer> numbers2 = Arrays.asList(1, 2, 3, 4, 5, 1, 2, 3, 4, 5);
 	private List<Integer> numbers3 = Arrays.asList(1, 2, 3, 5, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14,
 			15, 16, 17, 18, 19, 20);
-
+	Comparator<String> STRING_LEN_COMPARATOR = new Comparator<String>(){			
+		public int compare(String s1, String s2){
+		
+			return Integer.compare(s1.length(), s2.length());
+		}
+	};
+	
+	public void newTest(){
+		
+		// here rewrite the anonymous class string length comparator as lambda
+		Comparator<String> strComparator =
+				(String s1, String s2) -> Integer.compare(s1.length(), s2.length());
+				
+	   // if there are several lines in the body of the function
+	   Comparator<String> anotherComparator =
+			   (String s1, String s2) -> {
+				   
+				   System.out.println("There are some values here: " +s1 +" " +s2);
+				   return Integer.compare(s1.length(), s2.length());
+			   };
+			   
+       Comparator<String> yetAnotherComparator = (s1,s2) ->{
+		   
+		   System.out.println("There are some values here: " +s1 +" " +s2);
+		   return Integer.compare(s1.length(), s2.length());
+ 
+       };
+       
+       Function<Person, Integer> f = person -> person.getAge();
+	}
+	
+	
+	public void testStreams(){
+		
+		List<Person> people = createPeople();
+	
+		
+		List<String> peopleNames = people.stream()
+				.map(Person::getName)
+				.collect(Collectors.toList());		
+		
+		
+		// using streams to print out collections 
+		// and forEach to print out collections.  I am working going through Java 8 books that goes over lambda and streams in details. a
+	
+		// as well as Option and new module functionality..
+		/*
+		 * 
+		 
+		 
+		 
+		 */
+		
+		
+	}
 	public void test8() {
 
 		List<String> myList = Arrays.asList("a1", "a2", "b1", "c2", "c1");

@@ -12,7 +12,7 @@ class Pizza implements Food {
 	}
 }
 
-class Cake implements Food {
+class DeliciousCake implements Food {
 
 	public String getType() {
 		return "Someone ordered a Dessert!";
@@ -25,7 +25,7 @@ class FoodFactory {
 		if (order.toLowerCase().equals("pizza")) {
 			return new Pizza();
 		} else if (order.toLowerCase().equals("cake")) {
-			return new Cake();
+			return new DeliciousCake();
 		}
 		
 		return null;

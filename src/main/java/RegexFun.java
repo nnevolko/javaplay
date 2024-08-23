@@ -51,11 +51,9 @@ public class RegexFun {
 
 	public void testIsIpAddress() {
 
-		List<String> ipsToCheck = Arrays.asList("255.", "188.", 
-				"255.124.134.", "255.12.42.", 
-				"123.12.9.", "9.9.9.","0.9.9.","255.99.199.9",
-				"206.217.228.239",
-				"123.123.125.234","000.12.12.034", "121.234.12.12", "23.45.12.56",
+		List<String> ipsToCheck = Arrays.asList("255.", "188.", "255.124.134.", "255.12.42.",
+				"123.12.9.", "9.9.9.", "0.9.9.", "255.99.199.9", "206.217.228.239",
+				"123.123.125.234", "000.12.12.034", "121.234.12.12", "23.45.12.56",
 				"000.12.234.23.23", "666.666.23.23", ".213.123.23.32", "23.45.22.32.",
 				"I.Am.not.an.ip", "000.12.12.034", "121.234.12.12", "23.45.12.56",
 				"00.12.123.123123.123", "122.23", "Hello.IP");
@@ -77,12 +75,57 @@ public class RegexFun {
 
 	}
 
+	public void testTrimAccountName() {
+		//String originalPreferredName = "Very long account name because that is what it is - 3498";
+		String originalPreferredName = "Bofa Regular Checking - 5669";
+
+		Pattern MY_PATTERN = Pattern.compile("(.{54})(.*)?(-\\s+\\d{4}$)");
+		Matcher m = MY_PATTERN.matcher("Very long account name because that is what it is - 3498");
+		while (m.find()) {
+			String s = m.group(0);
+			String s2 = m.group(1);
+			String s3 = m.group(3);
+			System.out.println(s + "[" +s2+ "]" +"[" +s3+ "]" );
+			// s now contains "BAR"
+		}
+
+		int maxLength = 50;
+
+		if (originalPreferredName.length() > maxLength) {
+			// accountDigits = accountName1.substring(accountName1.length()-5,
+			// accountName1.length()-1);
+
+			String ellipses = "\u2026";
+			int accountPostFixPosition = originalPreferredName.lastIndexOf('-');
+			String accountPostFix = originalPreferredName.substring(accountPostFixPosition); //6 characters  [- xyzd]
+
+			System.out.println(accountPostFix);
+			String trimmedAccountNickName = originalPreferredName.substring(0, maxLength
+					- accountPostFix.length() - 2).trim()
+					+ "\u2026" + " "+ accountPostFix;
+			System.out.println(trimmedAccountNickName);
+			System.out.println("Number of characters: " + trimmedAccountNickName.length());
+
+		}else {
+			System.out.println(originalPreferredName);
+			System.out.println("Number of characters: " + originalPreferredName.length());
+
+		}
+
+	}
+
+	class MyRegex2 {
+		String account4Digits = "\\d[4]";
+		String patter = "";
+	}
+
 	class MyRegex {
-		//String pattern = "((2[0-5][0-5]|[01]?\\d{1,2})\\.){3}(2[0-5][0-5]|[01]?\\d{1,2})";
-		//String pattern = "((2[0-5]{2}|2[0-4]\\d|[01]?\\d{1,2})\\.){3}(2[0-5]{2}|2[0-4]\\d|[01]?\\d{1,2})";
-		
+		// String pattern = "((2[0-5][0-5]|[01]?\\d{1,2})\\.){3}(2[0-5][0-5]|[01]?\\d{1,2})";
+		// String pattern =
+		// "((2[0-5]{2}|2[0-4]\\d|[01]?\\d{1,2})\\.){3}(2[0-5]{2}|2[0-4]\\d|[01]?\\d{1,2})";
+
 		String subPart = "(2[0-5]{2}|2[0-4]\\d|[01]?\\d{1,2})";
-		String pattern = "("+subPart+"\\.){3}"+subPart;
+		String pattern = "(" + subPart + "\\.){3}" + subPart;
 	}
 
 }
